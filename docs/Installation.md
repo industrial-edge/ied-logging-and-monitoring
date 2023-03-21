@@ -1,72 +1,84 @@
-# Installation
+# Edge Device Logging & Monitoring
 
-- [Installation](#installation)
-  - [Build application](#build-application)
-    - [Cloning image](#cloning-image)
-    - [Build docker image](#build-docker-image)
-  - [Upload  App to the Industrial Edge Managment](#upload--app-to-the-industrial-edge-managment)
-    - [Connect your Industrial Edge App Publisher](#connect-your-industrial-edge-app-publisher)
-    - [Upload  App using the Industrial Edge App Publisher](#upload--app-using-the-industrial-edge-app-publisher)
-  - [Deploying of App](#deploying-of-app)
-    - [Configuring application](#configuring-application)
-    - [Add additional installation steps here, if required](#add-additional-installation-steps-here-if-required)
-      - [Additional steps](#additional-steps)
-  
-## Build application
+- [Edge Device Logging & Monitoring](#edge-device-logging--monitoring)
+  - [Installation steps](#installation-steps)
+    - [Set up Postgres database](#set-up-postgres-database)
+    - [Enable Logging and Monitoring service](#enable-logging-and-monitoring-service)
+    - [Visualization](#visualization)
 
-### Cloning image
+## Installation steps
 
-- Clone or Download the source code to your engineering VM
+### Set up Postgres database
 
-### Build docker image
+To set up the Postgres database , follow the instructions below. 
 
-Add instruction how to build your application, e.g.:
+1. Clone this respository to you local environment with docker installed. 
+2. Open the [src](../src) folder in the terminal
+3. Rename the yaml file to `docker-compose` and adjust the `docker-compose` file with the following information: 
+  ```
+  - POSTGRES_PASSWORD
+  - POSTGRES_USER
+  - POSTGRES_DB
+  ```
+4. Run the following command
 
-- Open console in the source code folder
-- Rename the example Dockerfile (Dockerfile.example) to 'Dockerfile'
-- Use command `docker-compose build` to create the docker image.
-- This docker image can now be used to build you app with the Industrial Edge App Publisher
-- *docker images | grep scannerapp* can be used to check for the images
-- You should get a result similiar to this:
-
-## Upload  App to the Industrial Edge Managment
-
-Please find below a short description how to publish your application in your IEM.
-
-For more detailed information please see the section for [uploading apps to the IEM](https://github.com/industrial-edge/upload-app-to-iem).
-
-### Connect your Industrial Edge App Publisher
-
-- Connect your Industrial Edge App Publisher to your docker engine
-- Connect your Industrial Edge App Publisher to your Industrial Edge Managment System
-
-### Upload  App using the Industrial Edge App Publisher
-
-- Create a new application using the Industrial Publisher
-- Add a app new version
-- Import the [docker-compose](../docker-compose.yml) file using the **Import YAML** button
-- The warning `Build (sevices >> scanner-service) is not supported` can be ignored
-- **Start Upload** to transfer the app to Industrial Edge Managment
-- Further information about using the Industrial Edge App Publisher can be found in the [IE Hub](https://iehub.eu1.edge.siemens.cloud/documents/appPublisher/en/start.html)
-
-## Deploying of App
-
-### Configuring application
-
-If your app needs additional configuration you can add further description here, e.g. [param.json](../cfg-data/param.json)
-
-```json
-{
-    "Parameter1": "Siemens AG",
-    "Parameter2": "edge",
-    "Parameter3": "edge"
-}
+```bash
+  docker-compose up
 ```
+5. To access and manage your database, you can use the adminer by accessing `http://localhost:8080` in your browser.
 
-Add description of the configuration here:
+![DataSource](./graphics/adminer.png)
 
-### Add additional installation steps here, if required
 
-#### Additional steps
+### Enable Logging and Monitoring service
 
-Add description here
+1. Go to the IED user interface -> "Settings" -> "Logging & Monitoring".
+2. Click on "Manage Destinations".
+
+![ImportDashboard](./graphics/manage-destinations.JPG)
+
+3. Click "Create Destinations"
+4. On the left hand side select "pgsql" option under "select destination type".
+5. Fill in the form with the database details. 
+6. Click "Save".
+7. Your destination is created.
+   
+![ImportDashboard](./graphics/destination.JPG)
+   
+8. Click on "Configurations".
+
+![ImportDashboard](./graphics/configurations.JPG)
+
+9. Press "Create COnfiguration".
+10. A Wizard opens up. Fill in the required information for the "Data source" select which information you want to send out. 
+    
+> **_NOTE:_**  You have the option to send metrics from all edge apps or a system metrics like cpu or memory consumption of the edge device. 
+
+11. Click on "2. Metrics" and select which metrics you want to send to the database. 
+12. Click on "3. Data destination" and select the destionation you have created.
+13. Press "Submit". The configuration is now ready to apply.
+14. If needed, you can change settings by clicking on a toothed wheel. 
+15. Click on "Apply" under _Configurations
+
+![ImportDashboard](./graphics/settings.JPG)
+
+16. Click on "Save and apply". 
+17. Go back to "Configurations" and you should see that your configuration of the Logging and Monitoring service is applied.
+    
+![ImportDashboard](./graphics/applied.JPG)
+
+18. You can then see and explore the data coming in the database using the adminer. 
+
+![ImportDashboard](./graphics/data.png)
+
+**To understand what individual components of the CPU and other metrics mean, please refer to this page [here](https://www.opsdash.com/blog/cpu-usage-linux.html) and [here](https://docs.fluentbit.io/manual/pipeline/inputs/cpu-metrics)**
+
+### Visualization
+
+When having the data in the database, we are now able to visualize the data. For that you can use different visualization tool like Datadog, Metabase or Grafana. 
+
+Using Grafana, the dashboard to visualize Edge device CPU consumtion over time could look like this.
+
+![ImportDashboard](./graphics/grafana-visualization.png)
+
+> **_NOTE:_**  This feature can be leverage to monitor metrics from different devices. If you have multiple edge devices with Logging and Monitoring feature enabled, you can then set up multiple database instances to collect the metrics.
