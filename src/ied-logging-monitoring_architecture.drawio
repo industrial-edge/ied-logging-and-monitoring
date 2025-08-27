@@ -1,0 +1,37 @@
+<mxfile host="Electron" modified="2025-08-27T06:29:30.112Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="XJg3He7NPguNNSmnkMqe" version="21.6.8" type="device">
+  <diagram name="Seite-1" id="6TzDtHTBF2ChaUrNjTCT">
+    <mxGraphModel dx="1434" dy="964" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-8" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="43" y="225" width="566" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-5" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="450" y="300" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-2" value="Fluentbit" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="335" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-1" value="" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQgMTQ0IiBoZWlnaHQ9IjE0NCIgd2lkdGg9IjE0NCIgaWQ9Imljb25zIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzMyYTBhMDt9PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTEyOC41LDM0LDEwNSw1Ny41LDgxLjUsMzQsMTA1LDEwLjVaTTEwNSw2NC41N1YxMzRIMjlWMzRINzQuNDNMNzgsMzcuNTQsMTAxLjQ2LDYxLDEwNSw2NC41N1pNNDIsMzlIMzV2N2g3Wm0xMiwwSDQ3djdoN1oiIGNsYXNzPSJjbHMtMSIvPjwvc3ZnPg==" vertex="1" parent="1">
+          <mxGeometry x="40" y="245" width="111" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-3" value="" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBvdmVyZmxvdz0iaGlkZGVuIiB4bWw6c3BhY2U9InByZXNlcnZlIiBoZWlnaHQ9IjczIiB3aWR0aD0iMTEzIiB2aWV3Qm94PSIwIDAgMTEzIDczIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImNsaXAwIj48cmVjdCBoZWlnaHQ9IjczIiB3aWR0aD0iMTEzIiB5PSIzNzIiIHg9IjEwMiIvPjwvY2xpcFBhdGg+PGltYWdlIGlkPSJpbWcxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bGluazpocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUtVQUFBQjRDQU1BQUFDa1ZjSVpBQUFBQVhOU1IwSUFyczRjNlFBQUFBUm5RVTFCQUFDeGp3djhZUVVBQUFCRlVFeFVSUUFBQUN1aW9pbWxwVENmbnpPZ29DNmRvQzJlbmk2Z29ER2dvREdlb1RDZm56Q2lvakdmb1RHZ29ER2dvVEdmb0RLZ29ER2ZvVEdmb0RHZ29ER2dvVEdmb0RLZ29iT2lHQnNBQUFBV2RGSk9Vd0FlSDBCTFRrOVRVMVJWVlgxK204ck0xT0hqOS9yTGJoWWRBQUFBQ1hCSVdYTUFBQTdEQUFBT3d3SEhiNmhrQUFBQlhFbEVRVlI0WHUzVnlXN0NVQkJFMFpkNU5EUDUvMDlsOEUzRVlEZWJVcnFkMUZsaHYwSmN5UWpha0x1dlBBODAzRFRqRFRsbVZOekNQTXM5R1RIR2VlaUlzYzFEUjR4dEhqcGliUFBRRWV1bkM2NSswN3ovYUs1aS9kU1ZZMXlwNDBvZFYrcTRVc2VWT3E3VWNhV09LM1ZjcWVOS0hWZnF1RkxIbFRxdTFIR2xqaXQxWEtualNoMVg2cmhTeDVVNnJ0UnhwWTRyZFZ5cDQwb2RWK3E0VXNlVk9xN1VjYVdPSzNWY3FlTktuYjlhbVlpT0dOczhkTVRZNXFFanhqWVBIVEcyZWVpSXNjMURSNHh0SGpyTVR2SHR5RU5IaUdrbVNnSmJscG0ydEl6YU1NeTFvV2JFSTdOc3IvUU1lbUtVNzVtaUlVd3FvR2dBZ3hwb3VzSnhGVlJkNExBT3VzNXdWQWxsSjlhY1ZMS203Y2VLZzFwVzFPR0YyOVc4MDNmMHhzMTZQaWc4NEZaRkZPNXhveVlhYTBkK1ozSlIxeVFpRDVsTFhsVzJQRDV6KzA5NDlMVzVVcWQ5OHFLeWJpSy82aFA1aDJ5dDQ2cW1yclcyQTZSbFdES2VobHVsQUFBQUFFbEZUa1N1UW1DQyIgaGVpZ2h0PSIxMjAiIHdpZHRoPSIxNjUiLz48Y2xpcFBhdGggaWQ9ImNsaXAyIj48cmVjdCBoZWlnaHQ9IjY5NTQyMiIgd2lkdGg9Ijk1NjIwNSIgeT0iMCIgeD0iMCIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDIgLTM3MikiIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMDAwMTA0OTcyIDAgMCAwLjAwMDEwNDk3MiAxMDIgMzcyKSI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4xMjU3OCAwIDAgMSAwLjA1Njc2IDAuMDA3MjIyMjQpIiBjbGlwLXBhdGg9InVybCgjY2xpcDIpIj48dXNlIHRyYW5zZm9ybT0ic2NhbGUoNTc5NS4xOCA1Nzk1LjE4KSIgeGxpbms6aHJlZj0iI2ltZzEiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiLz48L2c+PC9nPjwvZz48L3N2Zz4=" vertex="1" parent="1">
+          <mxGeometry x="390" y="236" width="128.48" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-4" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" vertex="1" parent="1">
+          <mxGeometry x="429.24" y="246" width="50" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-6" value="influxDB" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="479.24" y="335" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-Tr7A3fojx6TyBrmsUkw-7" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#66CC00;strokeWidth=3;" edge="1" parent="1" source="-Tr7A3fojx6TyBrmsUkw-6" target="-Tr7A3fojx6TyBrmsUkw-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="257" y="485" as="sourcePoint" />
+            <mxPoint x="307" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
