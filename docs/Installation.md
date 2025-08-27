@@ -61,20 +61,20 @@ To set up the Influx database, follow the instructions below.
 
 
     
-> **_NOTE:_**  In the following we will configure the Data Source and Metrics which you want to export. <br>
-> You have the option to send metrics from the system  or some specific app which is installed on the Edge Device. <br>
-> If you choose `system` you can select e.g. cpu, ram and docker as metrics in the next step. Afterwards CPU and RAM of the host system (Edge Device) will be exported. Docker metrics will also export all data from each app installed on the Edge Device. <br>
-> If you select a specific app, you might get additional metrics of this app compared to when only selecting `system` --> `docker`. <br>
+> **_NOTE:_**  In the following we will configure our Data Source and Metrics which we want to export. <br>
+> You have the option to send metrics from the system or some specific app which is installed on the Edge Device. <br>
+> If you choose `system` you can select e.g. cpu, ram and docker metrics. Then CPU and RAM of the host system (Edge Device) will be exported. Docker metrics will export all data from each app installed on the Edge Device. <br>
+> If you select a specific app instead of `system`, you might get additional metrics of this specific app compared to only selecting `system` --> `docker`. <br>
 > In this example we will use `system` --> `cpu`, `ram` and `docker`, see:
 
-9. Fill in the required information for "1. Data source". Select which information you want to export:
+1. Fill in the required information for "1. Data source":
 
 ![Data Source](./graphics/data_source.png)
 10. Click on "2. Metrics" and select which metrics you want to send to the database:
 
 ![Metrics](./graphics/metrics.png)
 
-11. Click on "3. Data Destinations" and select the destination you have created previously:
+11. Click on "3. Data Destinations" and select the destination name you have created previously:
   
 ![Data Destinations](./graphics/data_destination.png)
 
@@ -87,8 +87,9 @@ To set up the Influx database, follow the instructions below.
 
 ![ImportDashboard](./graphics/settings.png)
 
-15. - Flush: Interval how often metrics will be pushed to your destination
-    - Polling interval: Interval how often metrics will be collected. Lower values depend on performance of Edge Device. More powerful CPU + more RAM will result in a lower value which can be selected. In this case every 1s metrics will be collected, see:
+15. - Flush: Interval how often metrics will be pushed to your destination. <br>
+      In this case data will be pushed every 5s.
+    - Polling interval: Interval how often metrics will be collected. Lower values depend on overall performance of Edge Device. More powerful CPU + more RAM will allow you to insert a lower value. <br>In this case every metrics will be collectec every 1s, see:
     
 ![Tuned Settings](./graphics/tuned_settings.png)
 
