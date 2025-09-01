@@ -12,7 +12,7 @@
 
 To set up the Influx database, follow the instructions below. 
 
-1. Clone this repository to you local environment. Docker and docker-compose plugin needs to be installed. 
+1. Clone this repository to your local environment. Docker and docker-compose plugin needs to be installed. 
 2. Open the [src](../src) folder in the terminal.
 3. Rename the YAML file to `docker-compose.yml` and update the following environment variables. These will be needed for configuring Logging & Monitoring service later on: 
   ```
