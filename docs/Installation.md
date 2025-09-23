@@ -94,7 +94,7 @@ To set up the Influx database, follow the instructions below.
 ![Tuned Settings](./graphics/tuned_settings.png)
 
 
-**To understand what individual components of the CPU and other metrics mean, please refer to this page [here](https://www.opsdash.com/blog/cpu-usage-linux.html) and [here](https://docs.fluentbit.io/manual/pipeline/inputs/cpu-metrics)**
+**To understand what individual components of the CPU and other metrics mean, please have a look at the official [fluentbit](https://docs.fluentbit.io/manual/pipeline/inputs/cpu-metrics) documentation and what e.g. [CPU metrics](https://www.opsdash.com/blog/cpu-usage-linux.html) mean.**
 
 ### Create InfluxDB dashboard
 
