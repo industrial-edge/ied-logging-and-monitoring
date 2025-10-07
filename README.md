@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Edge Device Logging & Monitoring](#edge-device-logging--monitoring)
+- [Edge Device Logging \& Monitoring](#edge-device-logging--monitoring)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
     - [Overview](#overview)
@@ -21,37 +21,38 @@
 
 ### Overview
 
-This application example demonstrates functionality of the Edge devices metrics agent which allows to collect IED metrics and send them to some external service. The provided Logging and Monitoring service is based on [fluentbit](https://fluentbit.io/) technology. More information about this can be found [here](https://cache.industry.siemens.com/dl/dl-media/766/109811766/att_1107397/v1/ied_operation_en-US/en-US/index.html).
+This application example demonstrates functionality of the Edge devices metrics agent which allows you to collect IED metrics and send them to some external service. <br>The provided Logging & Monitoring service is based on [fluentbit](https://fluentbit.io/) technology. More information about this can be found [here](https://cache.industry.siemens.com/dl/dl-media/766/109811766/att_1107397/v1/ied_operation_en-US/en-US/index.html).
 
 ### General task
 
-The goal of this application example is to show how to use the Edge device's Logging and Monitring service to collect metrics using fluentbit and send them to external database based on Postgres. Postgres can then be connected with different visualization tools like Grafana over the available plugin to visualize historical metrics data. The infrastructure and different tools are shown in the picture below. 
+This application example aims for the usage of Industrial Edge Device's Logging & Monitoring service to collect metrics using the internal fluentbit service and sending them to an external database based on influxDB. <br>
+Afterwards those metrics can be visualized using tools like Grafana, etc.<br>**In this example we will visualize data with the built-in web UI of InfluxDB.** <br>
+The infrastructure and different tools are shown in the picture below. 
 
-> **_NOTE:_**  Implementation and configuration of Grafana is not part of this documentation. For visualization of the metrics data, you can use different visualization tools.  
-
-![Infrastructure](./docs/graphics/architecture.JPG)
+![Infrastructure](./docs/graphics/architecture.png)
 
 
 ## Requirements
 
 ### Prerequisites
 
-- Activated Edge device 
+- onboarded Industrial Edge device
 - Linux VM with docker and docker-compose installed
 
 ### Used components
 
-- Industrial Edge Device V 1.11.0-4-a
-- VM Ubuntu 20.04
-- Docker 19.03.13
+- Industrial Edge Virtual Device v1.24.1-1-a
+- Ubuntu VM 22.04 LTS
+- Docker v28.3.3
+- Docker Compose v2.39.1 
 
 ## Installation steps
 
 To successfully run this application you need to follow three steps:
 
-1. [Set up Postgres and Grafana](docs/Installation.md#set-up-influxdb-and-grafana)
-2. [Create and upload metrics agent configuration file](docs/Installation.md#build-and-deploy-the-application)
-3. [Create a dashboard in Grafana](docs/Installation.md#create-a-dashboard-in-grafana)
+1. [Set up InfluxDB](docs/Installation.md#set-up-influxdb-database)
+2. [Enable Logging & Monitoring service](docs/Installation.md#enable-logging-and-monitoring-service)
+3. [Create InfluxDB dashboard](docs/Installation.md#create-influxdb-dashboard)
 
 Detailed description of the installation steps can be found [here](docs/Installation.md).
 
@@ -59,10 +60,11 @@ Detailed description of the installation steps can be found [here](docs/Installa
 
 You can find further documentation and help in the following links:
 
-- [Industrial Edge Hub](https://iehub.eu1.edge.siemens.cloud/#/documentation)
-- [Industrial Edge Forum](https://www.siemens.com/industrial-edge-forum)
+- [Industrial Edge Documentation](https://docs.industrial-operations-x.siemens.cloud/)
+- [Industrial Edge SIOS Forum](https://www.siemens.com/industrial-edge-forum)
+- [Industrial Edge Mendix Forum](https://forum.mendix.com/link/space/industrial-edge)
 - [Industrial Edge landing page](https://new.siemens.com/global/en/products/automation/topic-areas/industrial-edge/simatic-edge.html)
-- [Industrial Edge App Developer Documentation](https://industrial-edge.io/developer/index.html)
+
 
 
 ## Contribution

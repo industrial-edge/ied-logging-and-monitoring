@@ -1,84 +1,118 @@
 # Edge Device Logging & Monitoring
 
-- [Edge Device Logging & Monitoring](#edge-device-logging--monitoring)
+- [Edge Device Logging \& Monitoring](#edge-device-logging--monitoring)
   - [Installation steps](#installation-steps)
-    - [Set up Postgres database](#set-up-postgres-database)
+    - [Set up InfluxDB database](#set-up-influxdb-database)
     - [Enable Logging and Monitoring service](#enable-logging-and-monitoring-service)
-    - [Visualization](#visualization)
+    - [Create InfluxDB dashboard](#create-influxdb-dashboard)
 
 ## Installation steps
 
-### Set up Postgres database
+### Set up InfluxDB database
 
-To set up the Postgres database , follow the instructions below. 
+To set up the Influx database, follow the instructions below. 
 
-1. Clone this respository to you local environment with docker installed. 
-2. Open the [src](../src) folder in the terminal
-3. Rename the yaml file to `docker-compose` and adjust the `docker-compose` file with the following information: 
+1. Clone this repository to your local environment. Docker and docker-compose plugin needs to be installed. 
+2. Open the [src](../src) folder in the terminal.
+3. Rename the YAML file to `docker-compose.yml` and update the following environment variables. These will be needed for configuring Logging & Monitoring service later on: 
   ```
-  - POSTGRES_PASSWORD
-  - POSTGRES_USER
-  - POSTGRES_DB
+  - DOCKER_INFLUXDB_INIT_USERNAME
+  - DOCKER_INFLUXDB_INIT_PASSWORD
+  - DOCKER_INFLUXDB_INIT_ORG
+  - DOCKER_INFLUXDB_INIT_BUCKET
+  - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN
+  - DOCKER_INFLUXDB_INIT_RETENTION
   ```
 4. Run the following command
 
 ```bash
-  docker-compose up
+  docker compose up -d
 ```
-5. To access and manage your database, you can use the adminer by accessing `http://localhost:8080` in your browser.
+5. To access and manage your database, you can use InfluxDB UI by accessing `http://localhost:8086` in your browser:
 
-![DataSource](./graphics/adminer.png)
+![DataSource](./graphics/influxDB.png)
 
 
 ### Enable Logging and Monitoring service
 
-1. Go to the IED user interface -> "Settings" -> "Logging & Monitoring".
-2. Click on "Manage Destinations".
+1. Navigate to IEVD's user interface -> "Settings" -> "Logging & Monitoring".
+   
+2. Click on the "3 dots" in the upper right corner. Then select "Destinations Management":
 
-![ImportDashboard](./graphics/manage-destinations.JPG)
+![Manage Destinations](./graphics/manage-destinations.png)
 
-3. Click "Create Destinations"
-4. On the left hand side select "pgsql" option under "select destination type".
-5. Fill in the form with the database details. 
+3. Click "Create Destination"
+4. On the left side select "InfluxDB" option under "type to search destination".
+5. Fill in the form with the database details:
+   - destination name:  e.g. `InfluxDB`
+   - host: IP of host where InfluxDB is running e.g. `192.168.0.10`
+   - port: port specified in `docker-compose.yml`
+   - bucket: bucket specified in `docker-compose.yml`
+   - org: organization specified in `docker-compose.yml`
+   - http_token: token specified in `docker-compose.yml`
 6. Click "Save".
-7. Your destination is created.
+7. Your destination is created:
    
-![ImportDashboard](./graphics/destination.JPG)
+![Destination](./graphics/destination.png)
    
-8. Click on "Configurations".
+8. Click on "New Configuration". A Wizard opens up:
 
-![ImportDashboard](./graphics/configurations.JPG)
+![Configurations](./graphics/configuration.png)
 
-9. Press "Create COnfiguration".
-10. A Wizard opens up. Fill in the required information for the "Data source" select which information you want to send out. 
+
     
-> **_NOTE:_**  You have the option to send metrics from all edge apps or a system metrics like cpu or memory consumption of the edge device. 
+> **_NOTE:_**  In the following we will configure our Data Source and Metrics which we want to export. <br>
+> You have the option to send metrics from the system or some specific app which is installed on the Edge Device. <br>
+> If you choose `system` you can select e.g. cpu, ram and docker metrics. Then CPU and RAM of the host system (Edge Device) will be exported. Docker metrics will export all data from each app installed on the Edge Device. <br>
+> If you select a specific app instead of `system`, you might get additional metrics of this specific app compared to only selecting `system` --> `docker`. <br>
+> In this example we will use `system` --> `cpu`, `ram` and `docker`, see:
 
-11. Click on "2. Metrics" and select which metrics you want to send to the database. 
-12. Click on "3. Data destination" and select the destionation you have created.
-13. Press "Submit". The configuration is now ready to apply.
-14. If needed, you can change settings by clicking on a toothed wheel. 
-15. Click on "Apply" under _Configurations
+1. Fill in the required information for "1. Data source":
 
-![ImportDashboard](./graphics/settings.JPG)
+![Data Source](./graphics/data_source.png)
+10. Click on "2. Metrics" and select which metrics you want to send to the database:
 
-16. Click on "Save and apply". 
-17. Go back to "Configurations" and you should see that your configuration of the Logging and Monitoring service is applied.
+![Metrics](./graphics/metrics.png)
+
+11. Click on "3. Data Destinations" and select the destination name you have created previously:
+  
+![Data Destinations](./graphics/data_destination.png)
+
+12. Press "Submit" Button.
+13. The green light will indicate a healthy connection to your database. If it is red, you need to check the filled information for your destination:
     
-![ImportDashboard](./graphics/applied.JPG)
+![Status](./graphics/status.png)
 
-18. You can then see and explore the data coming in the database using the adminer. 
+14. **Optional:** fine tune settings of Logging & Monitoring service. Click on the "3 dots" in the upper right corner and go to "Settings":
 
-![ImportDashboard](./graphics/data.png)
+![ImportDashboard](./graphics/settings.png)
 
-**To understand what individual components of the CPU and other metrics mean, please refer to this page [here](https://www.opsdash.com/blog/cpu-usage-linux.html) and [here](https://docs.fluentbit.io/manual/pipeline/inputs/cpu-metrics)**
+15. - Flush: Interval how often metrics will be pushed to your destination. <br>
+      In this case data will be pushed every 5s.
+    - Polling interval: Interval how often metrics will be collected. Lower values depend on overall performance of Edge Device. More powerful CPU + more RAM will allow you to insert a lower value. <br>In this case every metrics will be collectec every 1s, see:
+    
+![Tuned Settings](./graphics/tuned_settings.png)
 
-### Visualization
 
-When having the data in the database, we are now able to visualize the data. For that you can use different visualization tool like Datadog, Metabase or Grafana. 
+**To understand what individual components of the CPU and other metrics mean, please have a look at the official [fluentbit](https://docs.fluentbit.io/manual/pipeline/inputs/cpu-metrics) documentation and what e.g. [CPU metrics](https://www.opsdash.com/blog/cpu-usage-linux.html) mean.**
 
-Using Grafana, the dashboard to visualize Edge device CPU consumtion over time could look like this.
+### Create InfluxDB dashboard
 
-![ImportDashboard](./graphics/grafana-visualization.png)
+When having the data in the database, we are now able to visualize the data. For that you can use different visualization tools like Grafana for example. <br>
+In this case we create a simple dashboard directly in InfluxDB UI:
 
-> **_NOTE:_**  This feature can be leverage to monitor metrics from different devices. If you have multiple edge devices with Logging and Monitoring feature enabled, you can then set up multiple database instances to collect the metrics.
+1. Access your database. Use InfluxDB UI by accessing `http://localhost:8086` in your browser:
+
+![InfluxDB](./graphics/influxDB.png)
+
+2.  After logging in, go to Dashboards tab:
+
+![Influx Navbar Dashboard](./graphics/influxDB_navigate_to_dashboards.png)
+
+3. Click "+ Create Dashboard" --> "Import Dashboard" and select `metrics_industrial_edge.json` which can be found in [src](../src) folder.
+4. Now you should see:
+
+![Influx Metrics Dashboard](./graphics/influxDB_metrics.png).
+
+> **_NOTE:_**  This dashboard provides you with a good entry point to customize a dashboard fulfilling your own needs. <br>
+> Currently it only visualizes `System.cpu` and `System.mem` metrics. If you want to extend this dashboard with additional widgets to display Industrial Edge applications' consumption you would need to visualize `System.docker` metrics. Those metrics could be explored when switching to 'Data Explorer' tab.
