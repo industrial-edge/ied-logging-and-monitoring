@@ -21,7 +21,7 @@
 
 ### Overview
 
-This application example demonstrates functionality of the Edge devices metrics agent which allows you to collect IED metrics and send them to some external service. <br>The provided Logging & Monitoring service is based on [fluentbit](https://fluentbit.io/) technology. More information about this can be found [here](https://cache.industry.siemens.com/dl/dl-media/766/109811766/att_1107397/v1/ied_operation_en-US/en-US/index.html).
+This application example demonstrates functionality of the Edge devices metrics agent which allows you to collect IED metrics and send them to some external service. <br>The provided Logging & Monitoring service is based on [fluentbit](https://fluentbit.io/) technology. More information about this can be found [here](https://docs.industrial-operations-x.siemens.cloud/r/en-us/v26.06/industrial-edge-platform-operation-setup-operate-utilize/industrial-edge-device/utilize/settings/logging-monitoring).
 
 ### General task
 
